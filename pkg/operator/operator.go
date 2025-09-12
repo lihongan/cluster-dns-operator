@@ -12,6 +12,7 @@ import (
 	operatorcontroller "github.com/openshift/cluster-dns-operator/pkg/operator/controller"
 	statuscontroller "github.com/openshift/cluster-dns-operator/pkg/operator/controller/status"
 	dnsnameresolver "github.com/openshift/coredns-ocp-dnsnameresolver/operator/controller/dnsnameresolver"
+	"k8s.io/utils/clock"
 
 	features "github.com/openshift/api/features"
 	configclient "github.com/openshift/client-go/config/clientset/versioned"
@@ -53,7 +54,7 @@ func New(ctx context.Context, config operatorconfig.Config, kubeConfig *rest.Con
 		Kind:       "Deployment",
 		Namespace:  config.OperatorNamespace,
 		Name:       "dns-operator",
-	})
+	}, clock.RealClock{})
 
 	configClient, err := configclient.NewForConfig(kubeConfig)
 	if err != nil {
