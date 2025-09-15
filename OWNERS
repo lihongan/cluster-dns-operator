@@ -8,6 +8,7 @@ approvers:
   - gcs278
   - rikatz
   - davidesalerno
+  - bentito
 reviewers:
   - knobunc
   - Miciah
@@ -18,6 +19,7 @@ reviewers:
   - gcs278
   - rikatz
   - davidesalerno
+  - bentito
 emeritus_approvers:
   - ironcladlou
   - pravisankar
